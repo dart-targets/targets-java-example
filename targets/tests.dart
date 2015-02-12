@@ -65,11 +65,12 @@ final List<String> files = ["Example.java"];
 /// completed implementations as part of your tests. You can
 /// use a different tests.dart for tests you run on submissions.
 List<Target> getTargets(){
-    IOTarget test1 = IOTarget.makeJava("Test 1", "Example", "reviver", "reviver");
-    IOTarget test2 = IOTarget.makeJava("Test 2", "Example", "cat\ndog", "tac\ngod");
-    IOTarget test3 = IOTarget.makeJava("Test 3", "Example", "This is a test.", ".tset a si sihT");
-    IOTarget test4 = IOTarget.makeJava("Test 4", "Example", "ab\nbc\ncd\nde\nef", "ba\ncb\ndc\ned\nfe");
-    IOTarget combo = IOTarget.makeJava("Combo Test","Example", 
-        new File("targets/sample-input.txt"), new File("targets/sample-output.txt"));
-    return [test1, test2, test3, test4, combo];
+    InputOutput io1 = new InputOutput("Test 1", "reviver", "reviver");
+    InputOutput io2 = new InputOutput("Test 2", "cat\ndog", "tac\ngod");
+    InputOutput io3 = new InputOutput("Test 3", "This is a test.", ".tset a si sihT");
+    InputOutput io4 = new InputOutput("Test 4", "ab\nbc\ncd\nde\nef", "ba\ncb\ndc\ned\nfe");
+    InputOutput combo = new InputOutput("Combo Test",
+        new File("targets/sample-input.txt"),
+        new File("targets/sample-output.txt"));
+    return IOTarget.makeMultiJava("Example", [io1, io2, io3, io4, combo]);
 }
